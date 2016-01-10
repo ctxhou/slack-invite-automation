@@ -27,21 +27,21 @@ router.post('/invite', function(req, res) {
         if (body.ok) {
           res.render('result', {
             community: config.community,
-            message: 'Success! Check "'+ req.body.email +'" for an invite from Slack.'
+            message: '成功! 快去你的信箱 "'+ req.body.email +'" 收邀請信吧！'
           });
         } else {
           var error = body.error;
           if (error === 'already_invited' || error === 'already_in_team') {
             res.render('result', {
               community: config.community,
-              message: 'Success! You were already invited.<br>' +
-                       'Visit to <a href="https://'+ config.slackUrl +'">'+ config.community +'</a>'
+              message: '成功! 你已經被邀請過了.<br>' +
+                       '歡迎直接到slack頻道 → <a href="https://'+ config.slackUrl +'">'+ config.community +'</a>'
             });
             return;
           } else if (error === 'invalid_email') {
-            error = 'The email you entered is an invalid email.'
+            error = '很抱歉，你輸入的Email並非正確的格式'
           } else if (error === 'invalid_auth') {
-            error = 'Something has gone wrong. Please contact a system administrator.'
+            error = '抱歉，我們出了一點問題，請麻煩你通知系統管理員'
           }
 
           res.render('result', {

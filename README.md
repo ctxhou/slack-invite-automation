@@ -40,6 +40,6 @@ $ npm install
 $ bin/www
 ```
 
-You can access <http://localhost:3000> on your web browser.
+You can access <http://localhost:5000> on your web browser.
 
 ![](https://raw.github.com/outsideris/slack-invite-automation/master/screenshots/join-page.jpg)
